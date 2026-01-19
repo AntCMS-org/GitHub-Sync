@@ -68,7 +68,7 @@ class Controller extends AbstractPlugin
 
         try {
             $syncInterval = $this->githubToken ? 500 : 1500;
-            if ($this->lastSyncTime && $this->lastSyncTime + $syncInterval <= time()) {
+            if ($this->lastSyncTime + $syncInterval >= time()) {
                 return;
             }
 
@@ -139,7 +139,7 @@ class Controller extends AbstractPlugin
         }
 
         // If we can open it, extract it and delete the temporary zip file
-        $tmpExtract = sys_get_temp_dir() . '/githubsync_extract_' . uniqid();
+        $tmpExtract = Path::join(PATH_CACHE, 'githubsync_extract_', uniqid());
         $this->filesystem->mkdir($tmpExtract, 0o775);
         $zipArchive->extractTo($tmpExtract);
         $zipArchive->close();
