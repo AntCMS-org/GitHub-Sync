@@ -1,0 +1,8 @@
+owner: octocat
+repo: Hello-World
+branch: main
+targetDir: ./ # Relative to the AntCMS content directory
+githubToken: null   # Optional, for more frequent syncing
+lastSync:
+  sha: null
+  time: null
