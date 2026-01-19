@@ -85,7 +85,7 @@ class Controller extends AbstractPlugin
             // Update YAML with last sync info
             $config['lastSync'] = [
                 'sha' => $latestSha,
-                'time' => date('c'),
+                'time' => time(),
             ];
             AntYaml::SaveFile($this->configPath, $config);
         } catch (\Exception $e) {
