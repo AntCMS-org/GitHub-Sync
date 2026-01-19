@@ -67,7 +67,7 @@ class Controller extends AbstractPlugin
         }
 
         try {
-            $syncInterval = $this->githubToken ? 300 : 3600;
+            $syncInterval = $this->githubToken ? 500 : 1500;
             if ($this->lastSyncTime && $this->lastSyncTime + $syncInterval <= time()) {
                 return;
             }
